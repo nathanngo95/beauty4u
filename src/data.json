@@ -1,0 +1,7 @@
+{
+  "user": {
+    "name": "nathan",
+    "pass": "123456",
+    "token": "auth-token"
+  }
+}

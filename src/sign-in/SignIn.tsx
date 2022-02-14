@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,13 +13,14 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import * as fakeData from '../data.json';
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="#">
+        Beauty4U
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -28,15 +30,16 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignIn({ setToken }:{ setToken: any }) {
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const getUser = fakeData;
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    console.log(getUser.user);
+    if(username === getUser.user.name && password === getUser.user.pass) {
+      setToken(getUser.user.token);
+    }
   };
 
   return (
@@ -66,6 +69,7 @@ export default function SignIn() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={e => setUserName(e.target.value)}
               autoFocus
             />
             <TextField
@@ -76,6 +80,7 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
+              onChange={e => setPassword(e.target.value)}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -108,4 +113,8 @@ export default function SignIn() {
       </Container>
     </ThemeProvider>
   );
+}
+
+SignIn.propTypes = {
+  setToken: PropTypes.func.isRequired
 }
