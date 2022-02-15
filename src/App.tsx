@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { BrandList } from "./dashboard/BrandList";
@@ -6,7 +5,6 @@ import Dashboard from "./dashboard/Dashboard";
 import { MyBooking } from "./dashboard/MyBooking";
 import Title from "./dashboard/Title";
 import SignIn from "./sign-in/SignIn";
-import useToken from "./sign-in/useToken";
 
 function App() {
   return (

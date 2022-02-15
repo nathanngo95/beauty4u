@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -126,7 +125,3 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
-
-// SignIn.propTypes = {
-//   setToken: PropTypes.func.isRequired
-// }
