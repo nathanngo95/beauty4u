@@ -3,5 +3,91 @@
     "name": "nathan",
     "pass": "123456",
     "token": "auth-token"
-  }
+  },
+  "brandList": [
+    {
+      "id": 1,
+      "brandName": "Nail ABC",
+      "location": 1,
+      "price": 43435354,
+      "service": 1,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    },
+    {
+      "id": 2,
+      "brandName": "Salon",
+      "location": 2,
+      "price": 43435354,
+      "service": 1,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    },
+    {
+      "id": 3,
+      "brandName": "Salon",
+      "location": 1,
+      "price": 43435354,
+      "service": 2,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    },
+    {
+      "id": 4,
+      "brandName": "Nail ABC",
+      "location": 2,
+      "price": 43435354,
+      "service": 3,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    },
+    {
+      "id": 5,
+      "brandName": "Nail ABC",
+      "location": 2,
+      "price": 43435354,
+      "service": 2,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    },
+    {
+      "id": 6,
+      "brandName": "Nail ABC",
+      "location": 3,
+      "price": 43435354,
+      "service": 1,
+      "description": "fdfdf",
+      "ranking": "fdfdf"
+    }
+  ],
+  "myBooking": [
+    {
+      "id": 6,
+      "brandId": 2,
+      "date": "fd",
+      "time": 23,
+      "name": "Vy Truc",
+      "phone": 434343443,
+      "staff": "fjkdhdf",
+      "status": "cancel"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Spa"
+    },
+    {
+      "id": 2,
+      "name": "Nail"
+    },
+    {
+      "id": 3,
+      "name": "Salon"
+    },
+    {
+      "id": 4,
+      "name": "Massage"
+    }
+  ]
 }

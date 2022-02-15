@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import * as fakeData from '../data.json';
+import useToken from './useToken';
 
 function Copyright(props: any) {
   return (
@@ -30,7 +32,16 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignIn({ setToken }:{ setToken: any }) {
+export default function SignIn() {
+  const navigate = useNavigate();
+  const { token, setToken } = useToken();
+  useEffect(() => {
+    console.log(token);
+    if (token) {
+      navigate("/", { replace: true })
+    }
+  })
+  
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const getUser = fakeData;
@@ -39,6 +50,7 @@ export default function SignIn({ setToken }:{ setToken: any }) {
     console.log(getUser.user);
     if(username === getUser.user.name && password === getUser.user.pass) {
       setToken(getUser.user.token);
+      navigate("/", { replace: true })
     }
   };
 
@@ -115,6 +127,6 @@ export default function SignIn({ setToken }:{ setToken: any }) {
   );
 }
 
-SignIn.propTypes = {
-  setToken: PropTypes.func.isRequired
-}
+// SignIn.propTypes = {
+//   setToken: PropTypes.func.isRequired
+// }

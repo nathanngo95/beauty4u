@@ -1,21 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Dashboard from './dashboard/Dashboard';
-import SignIn from './sign-in/SignIn';
-import useToken from './sign-in/useToken';
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import { BrandList } from "./dashboard/BrandList";
+import Dashboard from "./dashboard/Dashboard";
+import { MyBooking } from "./dashboard/MyBooking";
+import Title from "./dashboard/Title";
+import SignIn from "./sign-in/SignIn";
+import useToken from "./sign-in/useToken";
 
 function App() {
-  const { token, setToken } = useToken();
-  console.log(token);
-  if(!token) {
-    return <SignIn setToken={setToken} />
-  }
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="/" element={<Dashboard children={<MyBooking/>} />} />
+          {/* <Route path="/" element={MyBooking} /> */}
+          <Route path="/shops" element={<Dashboard children={<BrandList/>} />} />
+          <Route path='*' element={<Title>Page Not Found</Title>} />
         </Routes>
       </BrowserRouter>
     </div>
