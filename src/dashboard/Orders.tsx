@@ -14,7 +14,7 @@ function preventDefault(event: React.MouseEvent) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Booking expired</Title>
+      <Title>Booking History</Title>
       <Table size="small">
         <TableHead>
           <TableRow>

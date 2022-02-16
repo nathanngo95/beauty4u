@@ -16,7 +16,6 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import * as React from "react";
-import { useHistory } from "react-router";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -80,7 +79,7 @@ const names = [
 
 export const BookingDetail = (props: DialogProps) => {
   const { open, handleClose, disable, brandId, orderId } = props;
-  let history = useHistory();
+  // let history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     if (disable) {
@@ -109,7 +108,7 @@ export const BookingDetail = (props: DialogProps) => {
         .post("http://localhost:3004/myBooking", dataSubmit)
         .then((response) => console.log(response));
     }
-    history.push("/");
+    // history.push("/");
   };
 
   const [staff, setStaff] = React.useState("");
@@ -253,7 +252,7 @@ export const BookingDetail = (props: DialogProps) => {
                 sx={{ mt: 3, mb: 2 }}
                 autoFocus
               >
-                {disable ? "Cancel" : "Booking"}
+                {disable ? "Cancel" : "Book"}
               </Button>
             </Box>
           </Grid>

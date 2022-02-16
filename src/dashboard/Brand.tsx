@@ -61,7 +61,6 @@ export default function Brand(props: BrandProps) {
         <Button size="small" onClick={handleClickOpen}>
           View detail
         </Button>
-        <Button size="small">Learn More</Button>
       </CardActions>
       <BookingDetail
         open={openDialog}
